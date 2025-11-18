@@ -1,0 +1,418 @@
+import React, { useState } from 'react';
+import { BookOpen, Heart, MessageCircle, Headphones, Mail, CheckCircle2, Star, ArrowRight, ChevronDown, ChevronUp, Calendar, ShieldCheck } from 'lucide-react';
+
+const App = () => {
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const scrollToCheckout = () => {
+    const checkoutElement = document.getElementById('checkout');
+    if (checkoutElement) {
+      checkoutElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-stone-50 text-stone-800 font-sans selection:bg-amber-200 selection:text-amber-900">
+      {/* Inject Fonts and Custom CSS */}
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+          
+          .font-serif { font-family: 'Playfair Display', serif; }
+          .font-sans { font-family: 'Lato', sans-serif; }
+          
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translate3d(0, 20px, 0);
+            }
+            to {
+              opacity: 1;
+              transform: translate3d(0, 0, 0);
+            }
+          }
+
+          .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+          }
+        `}
+      </style>
+
+      {/* Navbar */}
+      <nav className="bg-white shadow-sm sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <Star className="w-6 h-6 text-amber-500 fill-amber-500" />
+            <span className="font-serif font-bold text-xl text-stone-800 tracking-tight">Devocional Litúrgico Católico</span>
+          </div>
+          <button 
+            onClick={scrollToCheckout}
+            className="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-bold transition-all shadow-md"
+          >
+            Assinar Agora
+          </button>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <header className="relative bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/50 to-stone-50"></div>
+        
+        <div className="relative max-w-4xl mx-auto px-4 pt-20 pb-24 text-center">
+          <span className="inline-block py-1 px-3 rounded-full bg-amber-100 text-amber-800 text-xs font-bold tracking-widest uppercase mb-6 animate-fade-in-up">
+            Devocional Litúrgico Católico 2026
+          </span>
+          <h1 className="font-serif text-4xl md:text-6xl font-bold text-stone-900 leading-tight mb-6">
+            A Liturgia da Igreja no seu <span className="text-amber-600 italic">momento diário com Deus.</span>
+          </h1>
+          
+          {/* SUBHEADLINE ATUALIZADA AQUI 👇 */}
+          <p className="text-lg md:text-xl text-stone-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Para quem caminha na fé e para quem deseja se reaproximar. Receba as leituras da Missa e reflexões simples no seu celular — <span className="font-medium text-stone-800">sem culpa, sem pressão e em poucos minutos.</span>
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button 
+              onClick={scrollToCheckout}
+              className="w-full sm:w-auto bg-amber-600 hover:bg-amber-700 text-white text-lg px-8 py-4 rounded-lg font-bold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
+            >
+              Quero Viver Isso em 2026 <ArrowRight className="w-5 h-5" />
+            </button>
+            <p className="text-sm text-stone-500 mt-2 sm:mt-0 flex items-center gap-1">
+              <ShieldCheck className="w-4 h-4 text-green-600" /> Cancelamento fácil
+            </p>
+          </div>
+        </div>
+      </header>
+
+      {/* The Problem / Agitation */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-stone-800 mb-6">
+            Você sente dificuldade em viver a Liturgia no dia a dia?
+          </h2>
+          <p className="text-stone-600 text-lg leading-relaxed mb-8">
+            Muitos católicos desejam viver um ano mais próximo de Deus, mas se perdem na correria ou <span className="font-bold text-stone-700">não conseguem ir à Missa com a frequência que gostariam</span>. Interpretar as leituras sozinho parece difícil, e encontrar tempo para um devocional profundo acaba ficando para depois.
+          </p>
+          <div className="p-6 bg-stone-50 border-l-4 border-amber-400 rounded-r-lg text-left shadow-sm">
+            <p className="text-stone-700 italic font-medium">
+              "O Devocional Litúrgico Católico 2026 foi criado para unir sua vida à oração da Igreja. Um acompanhamento diário, leve e acessível, para que você reze com a Igreja sem precisar pesquisar nada."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* What You Get (Features) */}
+      <section className="py-20 px-4 bg-amber-50/50">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+              O que você recebe todos os dias
+            </h2>
+            <p className="text-stone-600">Um pequeno momento de direção espiritual no seu celular.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <BookOpen className="w-8 h-8 text-amber-600" />,
+                title: "Leituras Oficiais",
+                desc: "Primeira leitura, Salmo e Evangelho do dia seguindo a liturgia da Igreja Católica."
+              },
+              {
+                icon: <MessageCircle className="w-8 h-8 text-amber-600" />,
+                title: "Reflexão Curta",
+                desc: "Linguagem simples, profunda e acessível. Sem teologia complicada."
+              },
+              {
+                icon: <Heart className="w-8 h-8 text-amber-600" />,
+                title: "Oração Final",
+                desc: "Uma oração feita especialmente para combinar com o tema das leituras do dia."
+              },
+              {
+                icon: <Headphones className="w-8 h-8 text-amber-600" />,
+                title: "Versão em Áudio",
+                desc: "Perfeito para ouvir enquanto dirige, trabalha ou faz tarefas domésticas."
+              },
+              {
+                icon: <Mail className="w-8 h-8 text-amber-600" />,
+                title: "Entrega Automática",
+                desc: "Receba todo o conteúdo diariamente no seu WhatsApp ou E-mail."
+              },
+              {
+                icon: <Calendar className="w-8 h-8 text-amber-600" />,
+                title: "Constância",
+                desc: "O formato ideal para quem tem pouco tempo (3 a 5 min) mas muita fé."
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-stone-100">
+                <div className="mb-4 bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center">
+                  {item.icon}
+                </div>
+                <h3 className="font-serif text-xl font-bold text-stone-800 mb-3">{item.title}</h3>
+                <p className="text-stone-600 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why This Devotional */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          <div className="w-full md:w-1/2">
+            <img 
+              src="https://images.unsplash.com/photo-1507692049790-de58293a4699?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+              alt="Pessoa lendo em paz" 
+              className="rounded-2xl shadow-2xl"
+            />
+          </div>
+          <div className="w-full md:w-1/2">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-stone-900 mb-6">
+              Por que este é o devocional perfeito para 2026?
+            </h2>
+            <ul className="space-y-4">
+              {[
+                "Não exige conhecimento bíblico prévio.",
+                "Não exige tempo: apenas 3 a 5 minutos por dia.",
+                "Aproxima você da liturgia da Santa Missa.",
+                "Traz direção, paz interior e clareza.",
+                "Conteúdo familiar: pode ser lido por todos.",
+                "Entrega prática: chega até você, sem esforço."
+              ].map((text, i) => (
+                <li key={i} className="flex items-start gap-3 text-lg text-stone-700">
+                  <CheckCircle2 className="w-6 h-6 text-amber-500 shrink-0 mt-0.5" />
+                  {text}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Audience */}
+      <section className="py-16 px-4 bg-stone-900 text-white text-center">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-serif text-3xl font-bold mb-8">Para quem é essa assinatura?</h2>
+          <div className="grid sm:grid-cols-2 gap-6 text-left">
+            <div className="bg-stone-800 p-6 rounded-lg border border-stone-700">
+              <p className="text-stone-300 mb-2">Para quem deseja...</p>
+              <h3 className="text-xl font-bold text-amber-400">Criar rotina espiritual diária</h3>
+            </div>
+            <div className="bg-stone-800 p-6 rounded-lg border border-stone-700">
+              <p className="text-stone-300 mb-2">Para quem deseja...</p>
+              <h3 className="text-xl font-bold text-amber-400">Entender a Palavra de Deus</h3>
+            </div>
+            <div className="bg-stone-800 p-6 rounded-lg border border-stone-700">
+              <p className="text-stone-300 mb-2">Para quem deseja...</p>
+              <h3 className="text-xl font-bold text-amber-400">Reflexões sem enrolação</h3>
+            </div>
+            <div className="bg-stone-800 p-6 rounded-lg border border-stone-700">
+              <p className="text-stone-300 mb-2">Para quem deseja...</p>
+              <h3 className="text-xl font-bold text-amber-400">Viver 2026 mais leve</h3>
+            </div>
+          </div>
+          <p className="mt-10 text-stone-400 italic text-lg">
+            Se você sempre “quis, mas não conseguiu”, este é o melhor ponto de partida.
+          </p>
+        </div>
+      </section>
+
+      {/* NOVO: Seção para Reconexão (Foco no não praticante) */}
+      <section className="py-20 px-4 bg-stone-50">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border-l-8 border-amber-500 flex flex-col md:flex-row items-center gap-10">
+            <div className="w-full md:w-2/3">
+              <span className="text-amber-600 font-bold tracking-wider text-sm uppercase mb-2 block">Um convite especial</span>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+                Sente-se um pouco afastado da Igreja?
+              </h2>
+              <p className="text-stone-600 text-lg leading-relaxed mb-6">
+                Talvez a correria da vida tenha te afastado da Missa ou da oração. Talvez você sinta culpa, ou ache que "não sabe rezar direito".
+                <br/><br/>
+                <strong>Não se preocupe. Comece de onde você está.</strong>
+                <br/>
+                O Devocional Litúrgico é a porta de entrada perfeita para reaquecer sua fé, no seu ritmo, sem julgamentos e com uma linguagem que você entende. É o seu primeiro passo de volta para Casa.
+              </p>
+              <button onClick={scrollToCheckout} className="text-amber-600 font-bold hover:text-amber-700 flex items-center gap-2 transition-colors">
+                Quero me reconectar agora <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="w-full md:w-1/3 flex justify-center">
+               <Heart className="w-32 h-32 text-amber-100 fill-amber-50" strokeWidth={1} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bonuses */}
+      <section className="py-20 px-4 bg-gradient-to-br from-amber-50 to-white">
+        <div className="max-w-5xl mx-auto text-center">
+          <span className="text-amber-600 font-bold tracking-widest text-sm uppercase mb-2 block">Exclusivo</span>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-stone-900 mb-12">
+            Presentes para Assinantes Ativos
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-1 transition-transform duration-300 border-t-4 border-amber-500">
+              <div className="text-4xl mb-4">☀️</div>
+              <h3 className="font-serif font-bold text-xl mb-2">Áudio "Oração da Manhã"</h3>
+              <p className="text-stone-600 text-sm">Para começar o dia com força e espiritualidade.</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-1 transition-transform duration-300 border-t-4 border-indigo-900">
+              <div className="text-4xl mb-4">🌙</div>
+              <h3 className="font-serif font-bold text-xl mb-2">Áudio "Oração da Noite"</h3>
+              <p className="text-stone-600 text-sm">Para acalmar a mente e finalizar seu dia em paz.</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-1 transition-transform duration-300 border-t-4 border-emerald-600">
+              <div className="text-4xl mb-4">🕊️</div>
+              <h3 className="font-serif font-bold text-xl mb-2">PDF Intenções e Gratidão</h3>
+              <p className="text-stone-600 text-sm">Material mensal para registrar sua caminhada espiritual.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision 2026 */}
+      <section className="py-16 px-4 bg-white border-b border-stone-100">
+        <div className="max-w-4xl mx-auto text-center">
+           <h2 className="font-serif text-3xl font-bold text-stone-900 mb-8">
+            Imagine seu 2026 assim...
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
+            <div className="flex items-center gap-3 p-3 bg-stone-50 rounded-lg">
+                <Star className="w-5 h-5 text-amber-500" />
+                <span className="text-stone-700">Mente mais leve</span>
+            </div>
+            <div className="flex items-center gap-3 p-3 bg-stone-50 rounded-lg">
+                <Star className="w-5 h-5 text-amber-500" />
+                <span className="text-stone-700">Paz interior real</span>
+            </div>
+            <div className="flex items-center gap-3 p-3 bg-stone-50 rounded-lg">
+                <Star className="w-5 h-5 text-amber-500" />
+                <span className="text-stone-700">Clareza nas decisões</span>
+            </div>
+            <div className="flex items-center gap-3 p-3 bg-stone-50 rounded-lg">
+                <Star className="w-5 h-5 text-amber-500" />
+                <span className="text-stone-700">Sem culpa e sem esforço</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Checkout / Pricing */}
+      <section id="checkout" className="py-24 px-4 bg-stone-100">
+        <div className="max-w-4xl mx-auto">
+            
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-stone-200 relative">
+            {/* Label */}
+            <div className="bg-amber-500 text-white text-center py-3 font-bold uppercase tracking-wider text-sm">
+                Oferta Especial de Lançamento
+            </div>
+
+            <div className="p-8 md:p-12 text-center">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-stone-900 mb-4">
+                Devocional Litúrgico Católico 2026
+              </h2>
+              <p className="text-stone-600 mb-8">
+                Menos que um café. Transforma sua fé.
+              </p>
+
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-stone-400 line-through text-xl">R$ 29,90</span>
+                <span className="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded">70% OFF</span>
+              </div>
+              <div className="flex items-end justify-center gap-1 mb-8">
+                <span className="text-4xl font-bold text-stone-800 pb-2">R$</span>
+                <span className="text-7xl font-bold text-amber-600 tracking-tighter">9,90</span>
+                <span className="text-stone-500 font-medium pb-2">/mês</span>
+              </div>
+
+              <div className="max-w-sm mx-auto mb-10 space-y-3 text-left">
+                <div className="flex items-center gap-3 text-stone-700">
+                    <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xs">✓</div>
+                    Leituras da Missa explicadas
+                </div>
+                <div className="flex items-center gap-3 text-stone-700">
+                    <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xs">✓</div>
+                    Áudios de oração diária
+                </div>
+                <div className="flex items-center gap-3 text-stone-700">
+                    <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xs">✓</div>
+                    Áudios exclusivos
+                </div>
+                <div className="flex items-center gap-3 text-stone-700">
+                    <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xs">✓</div>
+                    Bônus mensais (PDFs)
+                </div>
+                <div className="flex items-center gap-3 text-stone-700">
+                    <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xs">✓</div>
+                    Entrega automática no WhatsApp
+                </div>
+              </div>
+
+              <button className="w-full max-w-md bg-green-600 hover:bg-green-700 text-white text-xl py-5 rounded-xl font-bold shadow-lg hover:shadow-green-500/30 transition-all transform hover:scale-105">
+                ASSINAR POR R$ 9,90/MÊS
+              </button>
+              
+              <p className="mt-4 text-xs text-stone-400">
+                Pagamento seguro. Cancele quando quiser. Receba o acesso imediatamente.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 px-4 max-w-3xl mx-auto">
+        <h2 className="font-serif text-3xl font-bold text-center text-stone-900 mb-10">Dúvidas Frequentes</h2>
+        <div className="space-y-4">
+          {[
+            { q: "Como vou receber o devocional?", a: "Todo dia, automaticamente, enviaremos para o seu WhatsApp ou E-mail (você escolhe) o link com a liturgia, a reflexão e o áudio do dia." },
+            { q: "Não sou praticante frequente, serve para mim?", a: "Com certeza! É a ferramenta ideal para quem quer se reaproximar de Deus mas sente dificuldade em manter a rotina. É leve, acolhedor e sem julgamentos." },
+            { q: "Preciso entender de teologia?", a: "Não. O Devocional Litúrgico Católico é feito em linguagem simples, traduzindo a riqueza da Igreja para o seu cotidiano." },
+            { q: "Posso cancelar se não gostar?", a: "Sim, o cancelamento é imediato e sem multa. Você tem total liberdade." },
+            { q: "Serve para celular?", a: "Sim! Todo o conteúdo é formatado pensando na tela do seu celular, para leitura fácil e áudios leves." }
+          ].map((item, idx) => (
+            <div key={idx} className="border border-stone-200 rounded-lg overflow-hidden">
+              <button 
+                onClick={() => toggleFaq(idx)}
+                className="w-full flex justify-between items-center p-5 bg-white hover:bg-stone-50 text-left font-medium text-stone-800"
+              >
+                {item.q}
+                {openFaq === idx ? <ChevronUp className="w-5 h-5 text-amber-500" /> : <ChevronDown className="w-5 h-5 text-stone-400" />}
+              </button>
+              {openFaq === idx && (
+                <div className="p-5 bg-stone-50 text-stone-600 text-sm leading-relaxed border-t border-stone-100">
+                  {item.a}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-stone-900 text-stone-400 py-12 px-4 text-center border-t border-stone-800">
+        <div className="flex justify-center items-center gap-2 mb-6">
+            <Star className="w-5 h-5 text-amber-600" />
+            <span className="font-serif font-bold text-lg text-stone-200">Devocional Litúrgico Católico 2026</span>
+        </div>
+        <p className="mb-4 text-sm">© 2025-2026 Todos os direitos reservados.</p>
+        <div className="flex justify-center gap-4 text-xs">
+            <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
+            <a href="#" className="hover:text-white transition-colors">Política de Privacidade</a>
+            <a href="#" className="hover:text-white transition-colors">Contato</a>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
