@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BookOpen, Heart, MessageCircle, Headphones, Mail, CheckCircle2, Star, ArrowRight, ChevronDown, ChevronUp, Calendar, ShieldCheck } from 'lucide-react';
 
 const App = () => {
   const [openFaq, setOpenFaq] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Garante que a animação só ocorra após a montagem do componente para evitar erros de hidratação
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -17,23 +23,17 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-800 font-sans selection:bg-amber-200 selection:text-amber-900">
-      {/* Inject Fonts and Custom CSS */}
+      {/* Estilos Injetados com Fallbacks de segurança */}
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
           
-          .font-serif { font-family: 'Playfair Display', serif; }
-          .font-sans { font-family: 'Lato', sans-serif; }
+          .font-serif { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; }
+          .font-sans { font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
           
           @keyframes fadeInUp {
-            from {
-              opacity: 0;
-              transform: translate3d(0, 20px, 0);
-            }
-            to {
-              opacity: 1;
-              transform: translate3d(0, 0, 0);
-            }
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
           }
 
           .animate-fade-in-up {
@@ -47,7 +47,8 @@ const App = () => {
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Star className="w-6 h-6 text-amber-500 fill-amber-500" />
-            <span className="font-serif font-bold text-xl text-stone-800 tracking-tight">Devocional Litúrgico Católico</span>
+            <span className="font-serif font-bold text-xl text-stone-800 tracking-tight hidden sm:inline">Devocional Litúrgico</span>
+            <span className="font-serif font-bold text-xl text-stone-800 tracking-tight sm:hidden">Devocional 2026</span>
           </div>
           <button 
             onClick={scrollToCheckout}
@@ -59,19 +60,21 @@ const App = () => {
       </nav>
 
       {/* Hero Section */}
-      <header className="relative bg-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
+      <header className="relative bg-stone-100 overflow-hidden">
+        {/* Imagem de fundo com fallback de cor */}
+        <div className="absolute inset-0 bg-stone-200">
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10 mix-blend-multiply"></div>
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/50 to-stone-50"></div>
         
         <div className="relative max-w-4xl mx-auto px-4 pt-20 pb-24 text-center">
-          <span className="inline-block py-1 px-3 rounded-full bg-amber-100 text-amber-800 text-xs font-bold tracking-widest uppercase mb-6 animate-fade-in-up">
+          <span className={`inline-block py-1 px-3 rounded-full bg-amber-100 text-amber-800 text-xs font-bold tracking-widest uppercase mb-6 ${isMounted ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Devocional Litúrgico Católico 2026
           </span>
           <h1 className="font-serif text-4xl md:text-6xl font-bold text-stone-900 leading-tight mb-6">
             A Liturgia da Igreja no seu <span className="text-amber-600 italic">momento diário com Deus.</span>
           </h1>
           
-          {/* SUBHEADLINE ATUALIZADA AQUI 👇 */}
           <p className="text-lg md:text-xl text-stone-600 mb-10 max-w-2xl mx-auto leading-relaxed">
             Para quem caminha na fé e para quem deseja se reaproximar. Receba as leituras da Missa e reflexões simples no seu celular — <span className="font-medium text-stone-800">sem culpa, sem pressão e em poucos minutos.</span>
           </p>
@@ -83,7 +86,7 @@ const App = () => {
             >
               Quero Viver Isso em 2026 <ArrowRight className="w-5 h-5" />
             </button>
-            <p className="text-sm text-stone-500 mt-2 sm:mt-0 flex items-center gap-1">
+            <p className="text-sm text-stone-500 mt-2 sm:mt-0 flex items-center gap-1 justify-center">
               <ShieldCheck className="w-4 h-4 text-green-600" /> Cancelamento fácil
             </p>
           </div>
@@ -169,7 +172,8 @@ const App = () => {
             <img 
               src="https://images.unsplash.com/photo-1507692049790-de58293a4699?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
               alt="Pessoa lendo em paz" 
-              className="rounded-2xl shadow-2xl"
+              className="rounded-2xl shadow-2xl w-full h-auto"
+              loading="lazy"
             />
           </div>
           <div className="w-full md:w-1/2">
@@ -223,7 +227,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* NOVO: Seção para Reconexão (Foco no não praticante) */}
+      {/* Seção para Reconexão (Foco no não praticante) */}
       <section className="py-20 px-4 bg-stone-50">
         <div className="max-w-5xl mx-auto">
           <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border-l-8 border-amber-500 flex flex-col md:flex-row items-center gap-10">
@@ -239,12 +243,13 @@ const App = () => {
                 <br/>
                 O Devocional Litúrgico é a porta de entrada perfeita para reaquecer sua fé, no seu ritmo, sem julgamentos e com uma linguagem que você entende. É o seu primeiro passo de volta para Casa.
               </p>
-              <button onClick={scrollToCheckout} className="text-amber-600 font-bold hover:text-amber-700 flex items-center gap-2 transition-colors">
-                Quero me reconectar agora <ArrowRight className="w-5 h-5" />
+              <button onClick={scrollToCheckout} className="text-amber-600 font-bold hover:text-amber-700 flex items-center gap-2 transition-colors group">
+                Quero me reconectar agora <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
             <div className="w-full md:w-1/3 flex justify-center">
-               <Heart className="w-32 h-32 text-amber-100 fill-amber-50" strokeWidth={1} />
+               {/* Uso simplificado do ícone para evitar erros de renderização */}
+               <Heart className="w-32 h-32 text-amber-200" strokeWidth={1.5} fill="currentColor" />
             </div>
           </div>
         </div>
