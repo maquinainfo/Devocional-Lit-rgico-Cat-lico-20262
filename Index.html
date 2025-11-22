@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Poder do Santo Rosário - Edição Sacra</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'vatican-red': '#700f14',
+                        'vatican-gold': '#c5a059',
+                        'marble-white': '#f4f0ec',
+                        'deep-sepia': '#2c1810',
+                        'antiquarian': '#e8e0d5',
+                    },
+                    fontSize: {
+                        'mobile-base': '1.1rem', 
+                        'mobile-lg': '1.25rem',  
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #f4f0ec;
+            color: #2c1810;
+            line-height: 1.6; 
+        }
+        h1, h2, h3, h4, h5, .roman-font {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.05em;
+        }
+        p, li {
+            font-size: 1.15rem; 
+        }
+        @media (min-width: 768px) {
+            p, li {
+                font-size: 1.25rem; 
+            }
+        }
+        .gold-text {
+            color: #c5a059;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+        }
+        .gold-border {
+            border: 1px solid #c5a059;
+            box-shadow: 0 0 0 3px #700f14, 0 0 0 5px #c5a059;
+        }
+        .ornate-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .ornate-divider::before, .ornate-divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 2px double #c5a059;
+            margin: 0 1rem;
+        }
+        .btn-sacred {
+            /* Verde Metálico Cintilante (Estilo Litúrgico/Esmeralda) */
+            background: linear-gradient(180deg, #568a6a 0%, #3d6e51 45%, #264d37 100%);
+            border: 2px solid #c5a059; /* Mantendo a borda dourada para contraste */
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            /* Sombra interna para dar efeito 3D/Metálico + Sombra externa */
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 6px rgba(0,0,0,0.4);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-sacred:hover {
+            /* Efeito de brilho ao passar o mouse */
+            background: linear-gradient(180deg, #6ba681 0%, #4e8564 45%, #325e45 100%);
+            box-shadow: 0 0 20px rgba(86, 138, 106, 0.6), inset 0 0 10px rgba(197, 160, 89, 0.4);
+            transform: translateY(-1px);
+            border-color: #e8e0d5;
+        }
+        
+        /* MOCKUP VATICANO DE LUXO (LIVROS DA BLACK FRIDAY) */
+        .book-gold-3d {
+            position: relative;
+            border: 1px solid rgba(255,215,0, 0.3);
+            border-radius: 2px 4px 4px 2px;
+            box-shadow: 
+                1px 1px 0 #8a6d3b,
+                2px 2px 0 #8a6d3b,
+                3px 3px 0 #8a6d3b,
+                4px 4px 0 #8a6d3b,
+                5px 5px 0 #8a6d3b,
+                6px 6px 0 #8a6d3b,
+                7px 7px 0 #8a6d3b,
+                8px 8px 0 #8a6d3b,
+                9px 9px 0 #c5a059,
+                0 0 15px rgba(197, 160, 89, 0.4),
+                15px 15px 25px rgba(0,0,0,0.8);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            outline: 2px solid #c5a059;
+            outline-offset: -6px;
+        }
+
+        .book-gold-3d:hover {
+            transform: translateY(-5px) translateX(-5px);
+            box-shadow: 
+                1px 1px 0 #8a6d3b, 2px 2px 0 #8a6d3b, 3px 3px 0 #8a6d3b,
+                4px 4px 0 #8a6d3b, 5px 5px 0 #8a6d3b, 6px 6px 0 #8a6d3b,
+                7px 7px 0 #8a6d3b, 8px 8px 0 #8a6d3b, 9px 9px 0 #8a6d3b,
+                10px 10px 0 #8a6d3b, 11px 11px 0 #8a6d3b, 12px 12px 0 #c5a059,
+                0 0 25px rgba(255, 215, 0, 0.6),
+                25px 25px 35px rgba(0,0,0,0.9);
+        }
+
+        .bg-damask {
+            background-color: #2c1810;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23462b20' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .card-parchment {
+            background-color: #fffcf5;
+            border: 1px solid #e5dace;
+            box-shadow: inset 0 0 30px rgba(197, 160, 89, 0.1);
+        }
+        .bonus-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        .bonus-list::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .bonus-list::-webkit-scrollbar-thumb {
+            background: #c5a059; 
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Aviso de Promoção com Contador -->
+    <div class="bg-vatican-gold text-deep-sepia text-center py-3 text-lg font-bold uppercase tracking-widest border-b border-deep-sepia sticky top-0 z-50 shadow-md flex justify-center items-center gap-3">
+        <i data-lucide="clock" class="w-5 h-5 animate-pulse"></i>
+        <span>Oferta Expira em: <span id="countdown" class="font-black font-mono text-xl">19:00</span></span>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="bg-damask text-white pt-16 pb-24 relative overflow-hidden border-b-8 border-double border-vatican-gold">
+        <!-- Overlay Gradient -->
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/70 via-black/50 to-vatican-red/30 z-0"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <div class="inline-flex items-center justify-center border-y border-vatican-gold text-vatican-gold px-8 py-2 mb-8 tracking-[0.2em] uppercase text-xs md:text-sm bg-black/40 backdrop-blur-sm">
+                <span class="mr-2">†</span> Ad Jesum Per Mariam <span class="ml-2">†</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-7xl font-medium mb-6 leading-tight roman-font text-shadow-lg">
+                A Sua Família Está Sob Ataque Espiritual. <br>
+                <span class="text-vatican-gold italic block mt-2 text-3xl md:text-5xl font-serif">Aqui Está a Única Arma Capaz de Protegê-la.</span>
+            </h1>
+            
+            <!-- IMAGEM ABAIXO DA HEADLINE -->
+            <div class="flex justify-center my-10">
+                <img src="https://i.postimg.cc/KzwZpRMt/Gemini-Generated-Image-3lww5r3lww5r3lww-(1).webp" 
+                     alt="Batalha Espiritual Simbólica" 
+                     class="w-full max-w-2xl h-auto rounded-lg shadow-2xl border-2 border-vatican-gold/50 opacity-90 hover:opacity-100 transition-opacity duration-500">
+            </div>
+
+            <div class="ornate-divider max-w-2xl mx-auto text-vatican-gold opacity-80">
+                <!-- ÍCONE DE ROSÁRIO -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="currentColor" class="w-12 h-12">
+                    <path d="M50 15 A 30 30 0 1 1 49.9 15" stroke-width="4" stroke-dasharray="0.1 8" stroke-linecap="round" />
+                    <circle cx="50" cy="75" r="4" stroke-width="1.5" fill="none"/>
+                    <line x1="50" y1="79" x2="50" y2="88" stroke-width="2" />
+                    <circle cx="50" cy="84" r="1" fill="currentColor" />
+                    <path d="M50 88 V 100 M45 92 H 55" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <!-- SUBHEADLINE -->
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto font-light leading-relaxed">
+                Casamento em crise? Filhos rebeldes? Dificuldades financeiras? <br>
+                Aprenda a vencer essas provações e devolva a paz ao seu lar com a arma mais poderosa da Igreja: o <strong class="text-vatican-gold font-black uppercase tracking-wide text-shadow-sm">Aplicativo Santo Rosário da Batalha Espiritual</strong>.
+            </p>
+
+            <!-- SELO 1 (Discreto) -->
+            <div class="flex items-center justify-center gap-2 mb-8 text-gray-400 font-medium uppercase tracking-wider text-xs md:text-sm bg-black/20 inline-block px-5 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">
+                <i data-lucide="badge-check" class="w-4 h-4 text-gray-500"></i>
+                <span>Conteúdo RECOMENDADO por Padres e Bispos Internacionais</span>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-6 items-center">
+                <a href="#oferta" class="btn-sacred py-4 px-10 text-xl md:text-2xl rounded-sm font-serif italic">
+                    Quero Proteger Minha Família
+                </a>
+            </div>
+            <p class="mt-6 text-sm text-vatican-gold/80 uppercase tracking-widest text-xs">† Disponibilidade Digital Imediata †</p>
+        </div>
+    </header>
+
+    <!-- The Pain (Agitation) -->
+    <section class="py-20 bg-marble-white">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <div class="mb-8 flex justify-center text-vatican-red">
+                <i data-lucide="alert-circle" class="w-12 h-12"></i>
+            </div>
+            <h2 class="text-3xl md:text-5xl text-deep-sepia mb-10 roman-font">
+                Não São Apenas "Fases Difíceis"... <br>São Sinais de Guerra.
+            </h2>
+            <div class="space-y-8 text-xl md:text-2xl text-gray-700 leading-relaxed font-serif">
+                <p>
+                    Você sente que, por mais que lute, a paz escapa por entre os dedos? O que o mundo chama de azar ou coincidência, a fé nos revela ser um cerco espiritual contra o seu lar.
+                </p>
+                
+                <!-- Lista de Sintomas -->
+                <div class="text-left max-w-3xl mx-auto bg-white p-8 rounded-sm border-t-4 border-vatican-red shadow-lg my-10">
+                    <ul class="space-y-6 text-lg md:text-xl text-gray-800">
+                        <li class="flex items-start">
+                            <div class="bg-vatican-red/10 p-2 rounded-full mr-4 mt-1">
+                                <i data-lucide="heart-crack" class="w-6 h-6 text-vatican-red"></i>
+                            </div>
+                            <span><strong>No Casamento:</strong> Brigas surgem do nada, a frieza se instala e o diálogo se transforma em conflito constante.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-vatican-red/10 p-2 rounded-full mr-4 mt-1">
+                                <i data-lucide="users" class="w-6 h-6 text-vatican-red"></i>
+                            </div>
+                            <span><strong>Nos Filhos:</strong> Rebeldia inexplicável, falta de respeito e um afastamento doloroso dos valores que você tentou ensinar.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-vatican-red/10 p-2 rounded-full mr-4 mt-1">
+                                <i data-lucide="coins" class="w-6 h-6 text-vatican-red"></i>
+                            </div>
+                            <span><strong>Nas Finanças e Trabalho:</strong> Portas que se fecham sem motivo, dívidas que se multiplicam e uma insegurança que rouba seu sono.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-6 bg-deep-sepia/5 border-l-4 border-vatican-gold italic text-deep-sepia text-lg md:text-xl">
+                    "O inimigo não ataca o que não tem valor. Ele ataca sua família justamente porque ela é o tesouro de Deus. Para vencer uma batalha espiritual, ferramentas humanas não bastam: <strong>você precisa de uma arma do Céu.</strong>"
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="py-20 bg-antiquarian relative border-t border-b border-vatican-gold">
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#700f14 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            
+            <!-- Conteúdo Centralizado -->
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl mb-6 roman-font text-vatican-red leading-tight">
+                    A Única Estratégia <br>Capaz de Vencer
+                </h2>
+                
+                <p class="text-xl mb-8 leading-relaxed font-serif text-gray-800">
+                    VOCÊ JÁ TENTOU DE TUDO, MESMO ASSIM A SITUAÇÃO QUE VOCÊ ESTÁ VIVENDO SÓ PIORA.
+                </p>
+                <p class="text-lg mb-8 leading-relaxed font-serif text-gray-700">
+                    O <em>Aplicativo Santo Rosário da Batalha Espiritual</em> não é apenas uma coleção de preces; é um verdadeiro passo-a-passo para aqueles que desejam superar as adversidades e prevalecer nas mais diversas situações. Ele coloca em suas mãos a mesma arma que os santos usaram para vencer o impossível.
+                </p>
+                
+                <!-- IMAGEM APÓS A PALAVRA "IMPOSSÍVEL" -->
+                <div class="relative w-full max-w-md mx-auto my-12 transform hover:scale-105 transition duration-500">
+                    <img src="https://i.postimg.cc/qqzLCFM4/Texto-do-seu-paragrafo.webp" 
+                         alt="Pack Santo Rosário da Batalha Espiritual" 
+                         class="w-full h-auto drop-shadow-2xl">
+                    
+                    <!-- Efeito de brilho atrás da imagem -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-vatican-gold/20 blur-3xl -z-10 rounded-full"></div>
+                </div>
+                
+                <!-- GRADE DE BENEFÍCIOS -->
+                <div class="grid md:grid-cols-2 gap-6 text-left">
+                    <!-- ITEM 1: CASAMENTO -->
+                    <div class="flex items-center bg-white/60 p-6 rounded-sm border border-vatican-gold/30 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="p-3 bg-vatican-red text-white rounded-full mr-4 flex-shrink-0"><i data-lucide="heart-handshake" class="w-6 h-6"></i></div>
+                        <div>
+                            <h4 class="font-bold text-xl roman-font text-deep-sepia">Restauração Conjugal</h4>
+                            <p class="text-lg text-gray-700 mt-1">Transforme o campo de batalha do seu casamento em um santuário de paz. Aprenda a usar o Rosário para dissipar a frieza e blindar sua união contra ataques externos.</p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 2: FILHOS -->
+                    <div class="flex items-center bg-white/60 p-6 rounded-sm border border-vatican-gold/30 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="p-3 bg-vatican-red text-white rounded-full mr-4 flex-shrink-0"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
+                        <div>
+                            <h4 class="font-bold text-xl roman-font text-deep-sepia">Blindagem dos Filhos</h4>
+                            <p class="text-lg text-gray-700 mt-1">Não veja seus filhos se perderem para o mundo. Crie um escudo espiritual impenetrável ao redor deles, protegendo-os de más influências e ideologias perigosas.</p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 3: FINANÇAS -->
+                    <div class="flex items-center bg-white/60 p-6 rounded-sm border border-vatican-gold/30 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="p-3 bg-vatican-red text-white rounded-full mr-4 flex-shrink-0"><i data-lucide="key-round" class="w-6 h-6"></i></div>
+                        <div>
+                            <h4 class="font-bold text-xl roman-font text-deep-sepia">Providência e Abertura</h4>
+                            <p class="text-lg text-gray-700 mt-1">Rompa as amarras espirituais que fecham portas no seu trabalho. Quando o espiritual se alinha através da oração, a Providência Divina flui e o material prospera.</p>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 4: BATALHA GERAL -->
+                    <div class="flex items-center bg-white/60 p-6 rounded-sm border border-vatican-gold/30 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="p-3 bg-vatican-red text-white rounded-full mr-4 flex-shrink-0"><i data-lucide="cross" class="w-6 h-6"></i></div>
+                        <div>
+                            <h4 class="font-bold text-xl roman-font text-deep-sepia">Domínio da Arma Espiritual</h4>
+                            <p class="text-lg text-gray-700 mt-1">Aprenda a usar o Santo Rosário não apenas como devoção, mas como uma ferramenta tática de guerra para desarmar as ciladas do inimigo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who is this for -->
+    <section class="py-20 bg-marble-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-3xl md:text-4xl text-center mb-12 roman-font text-deep-sepia">
+                Este Chamado é Para Você?
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Beginner -->
+                <div class="bg-white border border-gray-200 p-8 shadow-lg hover:border-vatican-red transition duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-gray-200 text-gray-600 text-xs px-3 py-1 font-bold uppercase">O Iniciante</div>
+                    <h3 class="text-2xl font-bold text-vatican-red mb-4 roman-font">"Sinto minha família vulnerável..."</h3>
+                    <p class="text-gray-700 mb-4">
+                        Você percebe os ataques — as brigas constantes, a frieza no lar, o afastamento de Deus — mas se sente impotente. Talvez nunca tenha rezado o Rosário ou ache complicado começar.
+                    </p>
+                    <p class="font-serif italic text-deep-sepia font-bold">
+                        ⚠️ O Perigo: Ir para a guerra desarmado. Sem essa proteção, seu lar fica exposto e indefeso contra as investidas do inimigo.
+                    </p>
+                    <hr class="border-vatican-gold my-4 opacity-30">
+                    <p class="text-base text-gray-600">
+                        <strong>A Solução:</strong> Este é o seu "treinamento básico". Aprenda a empunhar essa arma sagrada do zero e comece a blindar sua casa imediatamente.
+                    </p>
+                </div>
+
+                <!-- Experienced -->
+                <div class="bg-white border border-gray-200 p-8 shadow-lg hover:border-vatican-red transition duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-vatican-gold text-white text-xs px-3 py-1 font-bold uppercase">O Praticante</div>
+                    <h3 class="text-2xl font-bold text-vatican-red mb-4 roman-font">"Eu rezo, mas as lutas continuam..."</h3>
+                    <p class="text-gray-700 mb-4">
+                        Você já tem o hábito de rezar, mas faz no automático. Você não sente mais a presença de Deus e não consegue se conectar e por consequência não consegue romper as barreiras espirituais.
+                    </p>
+                    <p class="font-serif italic text-deep-sepia font-bold">
+                        ⚠️ O Perigo: Lutar com uma espada cega. A oração sem fervor e estratégia não derruba as fortalezas do mal que cercam sua família.
+                    </p>
+                    <hr class="border-vatican-gold my-4 opacity-30">
+                    <p class="text-base text-gray-600">
+                        <strong>A Solução:</strong> Transforme sua devoção em combate real. Descubra os segredos para rezar com autoridade e poder para quebrar maldições.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access Objection Breaker -->
+    <section class="py-12 bg-deep-sepia border-y-4 border-double border-vatican-gold">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-vatican-gold text-xl md:text-2xl roman-font mb-8 tracking-wider uppercase">
+                <i data-lucide="wifi" class="inline-block w-6 h-6 mr-2 mb-1"></i> Acesso Digital Imediato & Universal
+            </h3>
+            
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-antiquarian">
+                <!-- Mobile -->
+                <div class="flex flex-col items-center group">
+                    <div class="p-4 border border-vatican-gold rounded-full mb-3 group-hover:bg-vatican-gold group-hover:text-deep-sepia transition duration-300">
+                        <i data-lucide="smartphone" class="w-8 h-8"></i>
+                    </div>
+                    <span class="font-bold font-serif text-lg">Celular</span>
+                </div>
+                
+                <!-- Tablet -->
+                <div class="flex flex-col items-center group">
+                    <div class="p-4 border border-vatican-gold rounded-full mb-3 group-hover:bg-vatican-gold group-hover:text-deep-sepia transition duration-300">
+                        <i data-lucide="tablet" class="w-8 h-8"></i>
+                    </div>
+                    <span class="font-bold font-serif text-lg">Tablet</span>
+                </div>
+                
+                <!-- Laptop -->
+                <div class="flex flex-col items-center group">
+                    <div class="p-4 border border-vatican-gold rounded-full mb-3 group-hover:bg-vatican-gold group-hover:text-deep-sepia transition duration-300">
+                        <i data-lucide="monitor" class="w-8 h-8"></i>
+                    </div>
+                    <span class="font-bold font-serif text-lg">Computador</span>
+                </div>
+            </div>
+            
+            <p class="mt-8 text-gray-400 font-serif italic text-lg max-w-2xl mx-auto">
+                "A fé não espera. Receba seu acesso por e-mail em segundos e comece a rezar onde estiver: aqui e agora."
+            </p>
+        </div>
+    </section>
+
+    <!-- Family Urgency -->
+    <section class="py-24 bg-vatican-red text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/shattered-island.png')]"></div>
+        <div class="container mx-auto px-4 text-center relative z-10 max-w-3xl">
+            <div class="mb-6 flex justify-center">
+                <i data-lucide="home" class="w-16 h-16 text-vatican-gold"></i>
+            </div>
+            <h2 class="text-4xl md:text-6xl roman-font mb-6">
+                Salve Sua Família Enquanto Há Tempo
+            </h2>
+            <p class="text-xl md:text-2xl font-serif leading-relaxed mb-8">
+                "A família que reza unida, permanece unida." Esta não é apenas uma frase bonita. É uma condição de sobrevivência.
+            </p>
+            <p class="text-lg opacity-90 mb-10">
+                Sua família está sendo bombardeada por ideologias anticristãs na escola, na TV e no celular. Se você não erguer um altar na sua sala, o mundo erguerá um ídolo no coração do seu lar. O Rosário diário é a única barreira impenetrável.
+            </p>
+            <a href="#oferta" class="btn-sacred px-8 py-4 text-xl font-bold uppercase tracking-widest transition duration-300 inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                Eu Aceito a Missão
+            </a>
+        </div>
+    </section>
+
+    <!-- BLACK NOVEMBER EXCLUSIVE GIFTS -->
+    <section class="py-20 bg-neutral-900 border-y-4 border-vatican-gold relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')]"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            
+            <div class="text-center mb-16">
+                <div class="inline-block bg-vatican-gold text-black font-black px-6 py-2 text-sm uppercase tracking-widest mb-6 transform -rotate-2 shadow-lg">
+                    PRESENTE EXCLUSIVO BLACK NOVEMBER
+                </div>
+                <h2 class="text-3xl md:text-5xl roman-font text-white mb-4">
+                    Leve Também Estes 3 Best-Sellers
+                </h2>
+                <p class="text-xl text-vatican-gold/80 font-serif italic">
+                    Totalmente de graça. Uma biblioteca espiritual completa para sua casa.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                
+                <!-- Book 1 -->
+                <div class="flex flex-col items-center text-center group">
+                    <div class="relative mb-6">
+                        <img src="https://i.postimg.cc/P5r868nq/313x0w.webp" 
+                             alt="Capa Livro Orações para libertação da ansiedade" 
+                             class="book-gold-3d w-48 h-auto">
+                        <div class="absolute -bottom-3 -right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded z-10 border border-white shadow-lg">R$ 0,00</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-vatican-gold mb-2">Orações para Libertação da Ansiedade</h3>
+                    <p class="text-sm text-gray-400 uppercase tracking-widest mb-3">Pe. Adriano Zandoná</p>
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        Uma bússola para a serenidade. Aprenda a usar a oração diária como ferramenta eficaz para combater a ansiedade e encontrar o equilíbrio interior.
+                    </p>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="flex flex-col items-center text-center group">
+                    <div class="relative mb-6">
+                        <img src="https://i.postimg.cc/pL2Kg6z2/313x0w-(1).webp" 
+                             alt="Capa Livro Batalha Espiritual" 
+                             class="book-gold-3d w-48 h-auto">
+                        <div class="absolute -bottom-3 -right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded z-10 border border-white shadow-lg">R$ 0,00</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-vatican-gold mb-2">Batalha Espiritual</h3>
+                    <p class="text-sm text-gray-400 uppercase tracking-widest mb-3">Pe. Reginaldo Manzotti</p>
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        Entre anjos e demônios. Conheça as armas da fé para o mais importante dos combates. Desfaça mitos e aprenda a natureza do inimigo.
+                    </p>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="flex flex-col items-center text-center group">
+                    <div class="relative mb-6">
+                        <img src="https://i.postimg.cc/BZTL4Cqq/313x0w-(2).webp" 
+                             alt="Capa Livro 7 Passos Para Restaurar Sua Família" 
+                             class="book-gold-3d w-48 h-auto">
+                        <div class="absolute -bottom-3 -right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded z-10 border border-white shadow-lg">R$ 0,00</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-vatican-gold mb-2">7 Passos Para Restaurar Sua Família</h3>
+                    <p class="text-sm text-gray-400 uppercase tracking-widest mb-3">Pe. Adriano Zandoná</p>
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        Pra vencer é preciso usar a estratégia certa. Um caminho concreto e transformador para restaurar a harmonia no lar através da fé.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- The Offer - Bonuses -->
+    <section class="py-20 bg-deep-sepia text-antiquarian relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-block mb-4 text-vatican-gold border border-vatican-gold px-3 py-1 text-xs tracking-widest uppercase">Acervo Digital Exclusivo</div>
+                <h2 class="text-4xl md:text-6xl roman-font text-vatican-gold mb-4">Os 15 Tesouros Espirituais</h2>
+                <p class="text-xl opacity-80 max-w-2xl mx-auto font-serif italic">
+                    Ao adquirir o aplicativo principal, receba graciosamente esta coleção completa para blindar sua vida espiritual.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Bonus I -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="music" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">I. Rosário Gregoriano</h3>
+                    <p class="text-base opacity-70 mb-4">Recitação em MP3 com fundo de canto gregoriano para elevar a alma onde estiver.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+
+                <!-- Bonus II -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="book-open" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">II. Meditações dos Santos</h3>
+                    <p class="text-base opacity-70 mb-4">Reflexões profundas de São Luís Montfort e outros santos para cada mistério.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+                
+                <!-- Bonus III -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="calendar" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">III. Calendário Litúrgico</h3>
+                    <p class="text-base opacity-70 mb-4">Organizador familiar para as orações e festas da Igreja.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+
+                <!-- Bonus IV -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="library" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">IV. História Sacra</h3>
+                    <p class="text-base opacity-70 mb-4">A origem milagrosa do Rosário, da batalha de Lepanto aos dias de hoje.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+
+                <!-- Bonus V -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="sparkles" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">V. Milagres Documentados</h3>
+                    <p class="text-base opacity-70 mb-4">Coletânea de graças alcançadas para fortalecer a fé nos momentos de aridez.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+
+                <!-- Bonus VI -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="languages" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">VI. Latim para Leigos</h3>
+                    <p class="text-base opacity-70 mb-4">Manual prático para rezar o Pater Noster e Ave Maria na língua oficial da Igreja.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+
+                <!-- Bonus VII -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="list-checks" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">VII. Folha de Novenas</h3>
+                    <p class="text-base opacity-70 mb-4">Arquivo pronto para impressão (Printable) para acompanhar seus 54 dias de oração.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+
+                <!-- Bonus VIII -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="scroll-text" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">VIII. Rosário Bíblico</h3>
+                    <p class="text-base opacity-70 mb-4">Versículos selecionados para intercalar em cada Ave-Maria, evitando distrações.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+                
+                <!-- Bonus IX -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="image" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">IX. Arte Sacra Digital</h3>
+                    <p class="text-base opacity-70 mb-4">Imagens em alta definição de pinturas clássicas para fundo de tela.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+
+                <!-- Bonus X -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="utensils" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">X. Jejum Católico Correto</h3>
+                    <p class="text-base opacity-70 mb-4">Instruções definitivas para mortificar a carne sem exageros ou erros, seguindo a prudência da Igreja.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+
+                <!-- Bonus XI -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="sun" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">XI. Preparação Eucarística</h3>
+                    <p class="text-base opacity-70 mb-4">Aprenda a receber a Eucaristia com a dignidade real, limpando a alma antes da comunhão.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+
+                <!-- Bonus XII -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="bookmark" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">XII. Orações Essenciais</h3>
+                    <p class="text-base opacity-70 mb-4">Manual das orações que todo católico deve ter gravadas no coração para tempos de batalha.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+
+                <!-- Bonus XIII -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="church" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">XIII. Santa Missa Explicada</h3>
+                    <p class="text-base opacity-70 mb-4">Entenda cada rito e gesto sagrado para participar do Sacrifício sem nunca mais se sentir perdido.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+
+                <!-- Bonus XIV -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="key" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">XIV. Confissão</h3>
+                    <p class="text-base opacity-70 mb-4">Como fazer um exame de consciência rigoroso e confessar-se corretamente para obter o perdão.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+
+                <!-- Bonus XV -->
+                <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
+                    <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="shield" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold roman-font mb-2 text-white">XV. Cura e Libertação</h3>
+                    <p class="text-base opacity-70 mb-4">Manual de orações de renúncia e proteção espiritual para blindar sua casa do mal.</p>
+                    <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
+                </div>
+            </div>
+
+            <!-- Resumo de Valores dos Bônus -->
+            <div class="mt-16 max-w-3xl mx-auto bg-black/40 border border-vatican-gold p-8 text-center rounded-sm backdrop-blur-sm shadow-2xl relative overflow-hidden">
+                <!-- Efeito de brilho de fundo -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-vatican-gold to-transparent opacity-50"></div>
+                
+                <h3 class="text-2xl md:text-3xl roman-font text-vatican-gold mb-8">Resumo do Valor Que Você Recebe</h3>
+                
+                <div class="space-y-4 font-serif text-lg md:text-xl">
+                    <div class="flex justify-between items-center border-b border-vatican-gold/20 pb-3 border-dashed">
+                        <span class="text-gray-300 text-left">Valor Total dos 15 Bônus (Se comprados separadamente):</span>
+                        <span class="text-red-400 font-bold line-through decoration-red-500">R$ 297,00</span>
+                    </div>
+                    
+                    <div class="flex justify-between items-center pt-4 text-xl md:text-3xl font-bold">
+                        <span class="text-white uppercase tracking-wide">Você Paga Pelos Bônus:</span>
+                        <span class="text-green-400">R$ 0,00 (GRÁTIS)</span>
+                    </div>
+                </div>
+                
+                <div class="mt-8 inline-block bg-vatican-gold/20 border border-vatican-gold/50 rounded-full px-6 py-2 text-vatican-gold italic text-sm md:text-base animate-pulse">
+                    Adquirindo o Aplicativo Santo Rosário da Batalha Espiritual, todos os bônus são presente nosso.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-20 bg-marble-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4 text-deep-sepia roman-font">Testemunhos Reais</h2>
+            <p class="text-center text-gray-600 italic mb-12">Veja o que estão dizendo sobre este aplicativo sagrado</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Depoimento Imagem 1 -->
+                <div class="group relative">
+                    <div class="absolute -inset-1 bg-vatican-gold opacity-25 rounded-lg blur transition duration-200 group-hover:opacity-75"></div>
+                    <div class="relative bg-white p-2 rounded-lg border border-gray-200 shadow-xl">
+                        <img src="https://i.postimg.cc/3w8mMpT2/Whats-App-Image-2025-11-19-at-19-44-31.jpg" 
+                             alt="Depoimento de Cliente 1" 
+                             class="w-full h-auto rounded border border-gray-100 hover:scale-[1.02] transition-transform duration-300">
+                    </div>
+                </div>
+
+                <!-- Depoimento Imagem 2 -->
+                <div class="group relative">
+                    <div class="absolute -inset-1 bg-vatican-gold opacity-25 rounded-lg blur transition duration-200 group-hover:opacity-75"></div>
+                    <div class="relative bg-white p-2 rounded-lg border border-gray-200 shadow-xl">
+                        <img src="https://i.postimg.cc/yN1cq9HF/Whats-App-Image-2025-11-19-at-19-44-32-(1).jpg" 
+                             alt="Depoimento de Cliente 2" 
+                             class="w-full h-auto rounded border border-gray-100 hover:scale-[1.02] transition-transform duration-300">
+                    </div>
+                </div>
+
+                <!-- Depoimento Imagem 3 -->
+                <div class="group relative">
+                    <div class="absolute -inset-1 bg-vatican-gold opacity-25 rounded-lg blur transition duration-200 group-hover:opacity-75"></div>
+                    <div class="relative bg-white p-2 rounded-lg border border-gray-200 shadow-xl">
+                        <img src="https://i.postimg.cc/XvjdMFbK/Whats-App-Image-2025-11-19-at-19-44-32.jpg" 
+                             alt="Depoimento de Cliente 3" 
+                             class="w-full h-auto rounded border border-gray-100 hover:scale-[1.02] transition-transform duration-300">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee (Correctly Placed BEFORE Pricing) -->
+    <section class="py-16 bg-white text-center border-t border-gray-200">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <i data-lucide="shield" class="w-16 h-16 text-vatican-gold mx-auto mb-6"></i>
+            <h3 class="text-3xl roman-font text-deep-sepia mb-4">Garantia Blindada de 90 Dias</h3>
+            <p class="font-serif text-gray-600 text-xl leading-relaxed">
+                Temos tanta certeza do poder espiritual deste material que removemos todo o risco. Você tem **3 meses inteiros** para testar. Se este conteúdo não elevar seu espírito e aproximar sua família da fé, devolvemos integralmente o seu investimento. Sem perguntas. A caridade é nossa regra.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="oferta" class="py-24 bg-antiquarian">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <div class="gold-border bg-white p-2 rounded-sm shadow-2xl">
+                <div class="border-2 border-deep-sepia p-4 md:p-12 relative overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]">
+                    
+                    <!-- Badge de Canto Atualizado -->
+                    <div class="absolute top-0 right-0 bg-black text-vatican-gold font-bold px-6 py-2 text-xs uppercase tracking-widest shadow-md border-b-2 border-l-2 border-vatican-gold">
+                        🔥 Black November Ativada
+                    </div>
+
+                    <!-- Título Destacado -->
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-deep-sepia roman-font mt-8 md:mt-0">
+                        SUPER OFERTA <br>
+                        <span class="inline-block bg-black text-vatican-gold px-6 py-2 rounded-sm mt-2 border-2 border-vatican-gold shadow-xl transform -rotate-1 text-3xl md:text-6xl">BLACK NOVEMBER</span>
+                    </h2>
+                    
+                    <p class="text-vatican-red font-bold uppercase tracking-widest text-sm mb-2 animate-pulse flex items-center justify-center gap-2">
+                        SOMENTE PARA OS PRÓXIMOS <span class="text-4xl roman-font">10</span> COMPRADORES
+                    </p>
+
+                    <!-- IMAGEM NO TOPO DA OFERTA -->
+                    <div class="flex justify-center my-8">
+                        <div class="relative w-full max-w-[220px] md:max-w-sm">
+                            <img src="https://i.postimg.cc/qqzLCFM4/Texto-do-seu-paragrafo.webp" 
+                                    alt="Pack do Produto" 
+                                    class="rounded shadow-xl border-4 border-white w-full h-auto transform hover:scale-105 transition duration-300">
+                            <!-- Selo de Desconto flutuante sobre a imagem -->
+                            <div class="absolute -bottom-4 -right-4 bg-vatican-red text-white text-lg font-bold px-4 py-2 rounded shadow-lg border-2 border-white z-10">
+                                -90% OFF
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ornate-divider w-1/2 mx-auto text-vatican-gold mb-6"><i data-lucide="cross" class="w-4 h-4"></i></div>
+
+                    <div class="flex flex-col justify-center items-center">
+                        
+                        <!-- BLOCO DA OFERTA -->
+                        <div class="w-full mb-8 text-left bg-antiquarian/30 p-4 md:p-6 rounded-lg border border-deep-sepia/10">
+                             
+                             <div class="flex flex-col items-center">
+                                <!-- Coluna do Preço e Lista (FULL WIDTH) -->
+                                <div class="w-full">
+                                     <!-- Price Display -->
+                                     <div class="flex flex-col md:flex-row justify-between items-center border-b border-deep-sepia/20 pb-4 mb-4 text-center md:text-left">
+                                        <div class="mb-2 md:mb-0">
+                                            <p class="text-gray-500 line-through font-serif text-lg">Valor Real: R$ 394,90</p>
+                                            <div class="text-5xl md:text-6xl font-bold text-black roman-font">R$ 37<span class="text-2xl md:text-3xl">,90</span></div>
+                                            <p class="text-sm text-vatican-red font-bold uppercase tracking-wider mt-1">Pagamento Único (Sem Mensalidades)</p>
+                                        </div>
+                                        <div class="text-center md:text-right">
+                                             <span class="bg-green-100 text-green-800 text-sm font-bold px-3 py-1 rounded-full uppercase tracking-wide">90% de Desconto</span>
+                                        </div>
+                                     </div>
+
+                                    <h4 class="text-vatican-red font-bold text-xl mb-4 flex items-center justify-center md:justify-start">
+                                        <i data-lucide="gift" class="w-6 h-6 mr-2"></i> Você Receberá Imediatamente:
+                                    </h4>
+                                    
+                                    <ul class="space-y-3 text-deep-sepia font-serif text-base md:text-lg">
+                                        <li class="flex items-start font-bold">
+                                            <i data-lucide="check-circle" class="w-6 h-6 text-vatican-red mr-3 mt-1 flex-shrink-0"></i> 
+                                            <div>
+                                                Acesso à <span class="font-black text-vatican-red text-xl">Plataforma RosárioFlix</span> com o Aplicativo Santo Rosário da Batalha Espiritual
+                                            </div>
+                                        </li>
+
+                                        <!-- NOVO: PRESENTE BLACK NOVEMBER NA OFERTA (REFORMULADO E ORGANIZADO) -->
+                                        <li class="my-6">
+                                            <div class="bg-white border-2 border-vatican-gold rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-[1.01]">
+                                                <div class="bg-vatican-gold text-black font-black text-center py-2 uppercase tracking-widest text-sm flex items-center justify-center gap-2">
+                                                    <i data-lucide="gift" class="w-5 h-5"></i> Presente Exclusivo Black November
+                                                </div>
+                                                <div class="p-5">
+                                                    <h5 class="font-bold text-vatican-red text-lg mb-3 border-b border-gray-200 pb-2">Pack "Biblioteca da Fé" (3 Best-Sellers)</h5>
+                                                    <ul class="space-y-3">
+                                                        <li class="flex items-start">
+                                                            <div class="bg-vatican-gold/20 p-1 rounded mr-3 mt-0.5"><i data-lucide="book" class="w-4 h-4 text-vatican-red"></i></div>
+                                                            <div>
+                                                                <span class="font-bold text-gray-900">Batalha Espiritual</span>
+                                                                <span class="block text-sm text-gray-600 italic">Pe. Reginaldo Manzotti</span>
+                                                            </div>
+                                                        </li>
+                                                        <li class="flex items-start">
+                                                            <div class="bg-vatican-gold/20 p-1 rounded mr-3 mt-0.5"><i data-lucide="book" class="w-4 h-4 text-vatican-red"></i></div>
+                                                            <div>
+                                                                <span class="font-bold text-gray-900">Orações p/ Libertação da Ansiedade</span>
+                                                                <span class="block text-sm text-gray-600 italic">Pe. Adriano Zandoná</span>
+                                                            </div>
+                                                        </li>
+                                                        <li class="flex items-start">
+                                                            <div class="bg-vatican-gold/20 p-1 rounded mr-3 mt-0.5"><i data-lucide="book" class="w-4 h-4 text-vatican-red"></i></div>
+                                                            <div>
+                                                                <span class="font-bold text-gray-900">7 Passos p/ Restaurar Sua Família</span>
+                                                                <span class="block text-sm text-gray-600 italic">Pe. Adriano Zandoná</span>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="mt-4 pt-3 border-t border-dashed border-gray-300 flex justify-between items-center">
+                                                        <span class="text-sm text-gray-500">Valor normal: <span class="line-through">R$ 97,00</span></span>
+                                                        <span class="bg-green-600 text-white font-bold px-3 py-1 rounded text-sm uppercase">Grátis Hoje</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <!-- Nested Full Bonus List inside Offer -->
+                                        <li class="flex items-start">
+                                            <i data-lucide="check-circle" class="w-6 h-6 text-vatican-red mr-3 mt-1 flex-shrink-0"></i> 
+                                            <div class="w-full">
+                                                <span class="font-bold">Coleção Completa com 15 Bônus:</span>
+                                                <ul class="mt-2 grid grid-cols-1 gap-x-4 gap-y-1 text-sm text-gray-700 border-l-2 border-vatican-gold pl-3 bonus-list max-h-64 overflow-y-auto md:max-h-none md:overflow-visible">
+                                                    <li>1. Rosário Gregoriano</li>
+                                                    <li>2. Meditações dos Santos</li>
+                                                    <li>3. Calendário Litúrgico</li>
+                                                    <li>4. História Sacra</li>
+                                                    <li>5. Milagres Documentados</li>
+                                                    <li>6. Latim para Leigos</li>
+                                                    <li>7. Folha de Novenas</li>
+                                                    <li>8. Rosário Bíblico</li>
+                                                    <li>9. Arte Sacra Digital</li>
+                                                    <li>10. Jejum Católico Correto</li>
+                                                    <li>11. Preparação Eucarística</li>
+                                                    <li>12. Orações Essenciais</li>
+                                                    <li>13. Santa Missa Explicada</li>
+                                                    <li>14. Confissão</li>
+                                                    <li>15. Cura e Libertação</li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        
+                                        <li class="flex items-center mt-4"><i data-lucide="check-circle" class="w-6 h-6 text-vatican-red mr-3 flex-shrink-0"></i> Acesso Vitalício e Download Imediato</li>
+                                    </ul>
+                                </div>
+                             </div>
+                        </div>
+
+                        <div class="w-full md:w-2/3">
+                            <a href="#" class="btn-sacred py-5 px-8 block w-full text-2xl md:text-3xl rounded-sm mb-4 text-center no-underline shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all">
+                                EU QUERO COMEÇAR O ROSÁRIO AGORA
+                            </a>
+                            <div class="flex justify-center gap-4 opacity-60 grayscale">
+                                <div class="h-6 w-10 bg-gray-300 rounded"></div>
+                                <div class="h-6 w-10 bg-gray-300 rounded"></div>
+                                <div class="h-6 w-10 bg-gray-300 rounded"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-4 font-serif">Ambiente Criptografado e Seguro</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-marble-white">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-3xl text-center mb-10 roman-font text-deep-sepia">Dúvidas Frequentes</h2>
+            <div class="space-y-4">
+                
+                <!-- NOVA PERGUNTA: MENSALIDADE -->
+                <details class="group bg-white border border-gray-300 p-6 cursor-pointer shadow-sm">
+                    <summary class="flex justify-between items-center font-bold text-deep-sepia roman-font">
+                        É uma mensalidade ou assinatura?
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 font-serif">
+                        <strong>Não.</strong> O pagamento é **único**. Você paga apenas R$ 37,90 uma única vez e tem acesso vitalício a todo o material, sem pegadinhas, sem assinaturas e sem cobranças futuras.
+                    </p>
+                </details>
+
+                <!-- PERGUNTA ATUALIZADA: COMO RECEBER -->
+                <details class="group bg-white border border-gray-300 p-6 cursor-pointer shadow-sm">
+                    <summary class="flex justify-between items-center font-bold text-deep-sepia roman-font">
+                        Como vou receber o produto?
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 font-serif">
+                        O envio é <strong>100% digital e imediato</strong>. Assim que seu pagamento for confirmado, nosso sistema envia automaticamente um e-mail para você com o link de acesso à Área de Membros. Lá você terá acesso ao Aplicativo Santo Rosário da Batalha Espiritual e todos os bônus. Você pode ler no celular, tablet ou computador.
+                    </p>
+                </details>
+
+                <details class="group bg-white border border-gray-300 p-6 cursor-pointer shadow-sm">
+                    <summary class="flex justify-between items-center font-bold text-deep-sepia roman-font">
+                        Como funciona a garantia de 90 dias?
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 font-serif">
+                        O risco é todo nosso. Você pode comprar, acessar todo o material e usar por **90 dias**. Se por qualquer motivo você achar que não valeu a pena, basta enviar um e-mail para nosso suporte (que você receberá na compra) pedindo o reembolso. Devolveremos cada centavo do seu dinheiro, sem perguntas e sem burocracia.
+                    </p>
+                </details>
+                
+                <details class="group bg-white border border-gray-300 p-6 cursor-pointer shadow-sm">
+                    <summary class="flex justify-between items-center font-bold text-deep-sepia roman-font">
+                        Serve para iniciantes?
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 font-serif">Sim. O método é explicado passo a passo, desde o sinal da cruz até as meditações mais profundas.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-deep-sepia text-antiquarian py-10 border-t-4 border-vatican-gold">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-6 text-vatican-gold opacity-50"><i data-lucide="church" class="w-8 h-8 mx-auto"></i></div>
+            <p class="font-serif italic opacity-70 mb-6">"O Rosário é a arma para estes tempos." — São Padre Pio</p>
+            <p class="text-xs opacity-50">&copy; 2023 Edições Sacras. Todos os direitos reservados.</p>
+            <div class="flex justify-center gap-6 mt-4 text-xs uppercase tracking-widest opacity-50">
+                <a href="#" class="hover:text-white">Termos</a>
+                <a href="#" class="hover:text-white">Privacidade</a>
+                <a href="#" class="hover:text-white">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Countdown Timer Logic
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration; // Reset loop or stop
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var nineteenMinutes = 60 * 19,
+                display = document.querySelector('#countdown');
+            startTimer(nineteenMinutes, display);
+        };
+    </script>
+</body>
+</html>
