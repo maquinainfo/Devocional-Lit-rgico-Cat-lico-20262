@@ -85,6 +85,9 @@
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 6px rgba(0,0,0,0.4);
             text-shadow: 0 1px 2px rgba(0,0,0,0.5);
             transition: all 0.3s ease;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
         }
         .btn-sacred:hover {
             /* Efeito de brilho ao passar o mouse */
@@ -94,7 +97,29 @@
             border-color: #e8e0d5;
         }
         
-        /* MOCKUP VATICANO DE LUXO (LIVROS DA BLACK FRIDAY) */
+        /* MOCKUP VATICANO DE LUXO */
+        .book-mockup-vatican {
+            border: 4px solid #2c1810; 
+            outline: 3px solid #c5a059;
+            outline-offset: 3px;
+            border-radius: 2px;
+            box-shadow: 
+                0 20px 30px -5px rgba(0,0,0,0.8), 
+                0 0 25px rgba(197, 160, 89, 0.3), 
+                inset 0 0 20px rgba(0,0,0,0.5);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .book-mockup-vatican:hover {
+            transform: translateY(-10px) scale(1.03);
+            outline-color: #ffd700;
+            box-shadow: 
+                0 30px 60px -12px rgba(0,0,0,0.9),
+                0 0 40px rgba(197, 160, 89, 0.7),
+                inset 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        /* NOVO ESTILO: LIVRO DE OURO GROSSO (MOCKUP 3D) */
         .book-gold-3d {
             position: relative;
             border: 1px solid rgba(255,215,0, 0.3);
@@ -202,7 +227,8 @@
             </div>
             
             <div class="flex flex-col md:flex-row justify-center gap-6 items-center">
-                <a href="#oferta" class="btn-sacred py-4 px-10 text-xl md:text-2xl rounded-sm font-serif italic">
+                <!-- BOTÃO CHECKOUT -->
+                <a href="https://checkout.tscotelaro.com.br/checkout01?add-to-cart=1273" class="btn-sacred py-4 px-10 text-xl md:text-2xl rounded-sm font-serif italic text-center">
                     Quero Proteger Minha Família
                 </a>
             </div>
@@ -326,7 +352,7 @@
         </div>
     </section>
 
-    <!-- Who is this for -->
+    <!-- Who is this for (ADAPTADA PARA BATALHA ESPIRITUAL) -->
     <section class="py-20 bg-marble-white">
         <div class="container mx-auto px-4 max-w-5xl">
             <h2 class="text-3xl md:text-4xl text-center mb-12 roman-font text-deep-sepia">
@@ -334,7 +360,7 @@
             </h2>
             <div class="grid md:grid-cols-2 gap-8">
                 
-                <!-- Beginner -->
+                <!-- Beginner (Adaptado) -->
                 <div class="bg-white border border-gray-200 p-8 shadow-lg hover:border-vatican-red transition duration-300 relative overflow-hidden group">
                     <div class="absolute top-0 right-0 bg-gray-200 text-gray-600 text-xs px-3 py-1 font-bold uppercase">O Iniciante</div>
                     <h3 class="text-2xl font-bold text-vatican-red mb-4 roman-font">"Sinto minha família vulnerável..."</h3>
@@ -350,7 +376,7 @@
                     </p>
                 </div>
 
-                <!-- Experienced -->
+                <!-- Experienced (Adaptado) -->
                 <div class="bg-white border border-gray-200 p-8 shadow-lg hover:border-vatican-red transition duration-300 relative overflow-hidden group">
                     <div class="absolute top-0 right-0 bg-vatican-gold text-white text-xs px-3 py-1 font-bold uppercase">O Praticante</div>
                     <h3 class="text-2xl font-bold text-vatican-red mb-4 roman-font">"Eu rezo, mas as lutas continuam..."</h3>
@@ -424,13 +450,14 @@
             <p class="text-lg opacity-90 mb-10">
                 Sua família está sendo bombardeada por ideologias anticristãs na escola, na TV e no celular. Se você não erguer um altar na sua sala, o mundo erguerá um ídolo no coração do seu lar. O Rosário diário é a única barreira impenetrável.
             </p>
-            <a href="#oferta" class="btn-sacred px-8 py-4 text-xl font-bold uppercase tracking-widest transition duration-300 inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <!-- BOTÃO CHECKOUT -->
+            <a href="https://checkout.tscotelaro.com.br/checkout01?add-to-cart=1273" class="btn-sacred px-8 py-4 text-xl font-bold uppercase tracking-widest transition duration-300 inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-center">
                 Eu Aceito a Missão
             </a>
         </div>
     </section>
 
-    <!-- BLACK NOVEMBER EXCLUSIVE GIFTS -->
+    <!-- BLACK NOVEMBER EXCLUSIVE GIFTS (NOVA SEÇÃO) -->
     <section class="py-20 bg-neutral-900 border-y-4 border-vatican-gold relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')]"></div>
         <div class="container mx-auto px-4 relative z-10">
@@ -452,9 +479,11 @@
                 <!-- Book 1 -->
                 <div class="flex flex-col items-center text-center group">
                     <div class="relative mb-6">
+                        <!-- MOCKUP DE OURO APLICADO -->
                         <img src="https://i.postimg.cc/P5r868nq/313x0w.webp" 
                              alt="Capa Livro Orações para libertação da ansiedade" 
                              class="book-gold-3d w-48 h-auto">
+                        
                         <div class="absolute -bottom-3 -right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded z-10 border border-white shadow-lg">R$ 0,00</div>
                     </div>
                     <h3 class="text-xl font-bold text-vatican-gold mb-2">Orações para Libertação da Ansiedade</h3>
@@ -467,6 +496,7 @@
                 <!-- Book 2 -->
                 <div class="flex flex-col items-center text-center group">
                     <div class="relative mb-6">
+                         <!-- MOCKUP DE OURO APLICADO -->
                         <img src="https://i.postimg.cc/pL2Kg6z2/313x0w-(1).webp" 
                              alt="Capa Livro Batalha Espiritual" 
                              class="book-gold-3d w-48 h-auto">
@@ -475,13 +505,14 @@
                     <h3 class="text-xl font-bold text-vatican-gold mb-2">Batalha Espiritual</h3>
                     <p class="text-sm text-gray-400 uppercase tracking-widest mb-3">Pe. Reginaldo Manzotti</p>
                     <p class="text-gray-300 text-base leading-relaxed">
-                        Entre anjos e demônios. Conheça as armas da fé para o mais importante dos combates. Desfaça mitos e aprenda a natureza do inimigo.
+                        Entre anjos e demônios. Conheça as armas da fé para o mais importante dos combates. Desfaça mitos e aprenda a natureza do inimigo para assegurar a vitória.
                     </p>
                 </div>
 
                 <!-- Book 3 -->
                 <div class="flex flex-col items-center text-center group">
                     <div class="relative mb-6">
+                         <!-- MOCKUP DE OURO APLICADO -->
                         <img src="https://i.postimg.cc/BZTL4Cqq/313x0w-(2).webp" 
                              alt="Capa Livro 7 Passos Para Restaurar Sua Família" 
                              class="book-gold-3d w-48 h-auto">
@@ -514,7 +545,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="music" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">I. Rosário Gregoriano</h3>
-                    <p class="text-base opacity-70 mb-4">Recitação em MP3 com fundo de canto gregoriano para elevar a alma onde estiver.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Recitação em MP3 com fundo de canto gregoriano para elevar a alma onde estiver.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
 
@@ -522,7 +553,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="book-open" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">II. Meditações dos Santos</h3>
-                    <p class="text-base opacity-70 mb-4">Reflexões profundas de São Luís Montfort e outros santos para cada mistério.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Reflexões profundas de São Luís Montfort e outros santos para cada mistério.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
                 
@@ -530,7 +561,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="calendar" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">III. Calendário Litúrgico</h3>
-                    <p class="text-base opacity-70 mb-4">Organizador familiar para as orações e festas da Igreja.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Organizador familiar para as orações e festas da Igreja.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
 
@@ -538,7 +569,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="library" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">IV. História Sacra</h3>
-                    <p class="text-base opacity-70 mb-4">A origem milagrosa do Rosário, da batalha de Lepanto aos dias de hoje.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">A origem milagrosa do Rosário, da batalha de Lepanto aos dias de hoje.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
 
@@ -546,7 +577,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="sparkles" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">V. Milagres Documentados</h3>
-                    <p class="text-base opacity-70 mb-4">Coletânea de graças alcançadas para fortalecer a fé nos momentos de aridez.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Coletânea de graças alcançadas para fortalecer a fé nos momentos de aridez.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
 
@@ -554,7 +585,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="languages" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">VI. Latim para Leigos</h3>
-                    <p class="text-base opacity-70 mb-4">Manual prático para rezar o Pater Noster e Ave Maria na língua oficial da Igreja.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Manual prático para rezar o Pater Noster e Ave Maria na língua oficial da Igreja.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
 
@@ -562,7 +593,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="list-checks" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">VII. Folha de Novenas</h3>
-                    <p class="text-base opacity-70 mb-4">Arquivo pronto para impressão (Printable) para acompanhar seus 54 dias de oração.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Arquivo pronto para impressão (Printable) para acompanhar seus 54 dias de oração.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
 
@@ -570,7 +601,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="scroll-text" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">VIII. Rosário Bíblico</h3>
-                    <p class="text-base opacity-70 mb-4">Versículos selecionados para intercalar em cada Ave-Maria, evitando distrações.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Versículos selecionados para intercalar em cada Ave-Maria, evitando distrações.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
                 
@@ -578,7 +609,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="image" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">IX. Arte Sacra Digital</h3>
-                    <p class="text-base opacity-70 mb-4">Imagens em alta definição de pinturas clássicas para fundo de tela.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Imagens em alta definição de pinturas clássicas para fundo de tela.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
 
@@ -586,7 +617,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="utensils" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">X. Jejum Católico Correto</h3>
-                    <p class="text-base opacity-70 mb-4">Instruções definitivas para mortificar a carne sem exageros ou erros, seguindo a prudência da Igreja.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Instruções definitivas para mortificar a carne sem exageros ou erros, seguindo a prudência da Igreja.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
 
@@ -594,7 +625,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="sun" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">XI. Preparação Eucarística</h3>
-                    <p class="text-base opacity-70 mb-4">Aprenda a receber a Eucaristia com a dignidade real, limpando a alma antes da comunhão.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Aprenda a receber a Eucaristia com a dignidade real, limpando a alma antes da comunhão.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
 
@@ -602,7 +633,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="bookmark" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">XII. Orações Essenciais</h3>
-                    <p class="text-base opacity-70 mb-4">Manual das orações que todo católico deve ter gravadas no coração para tempos de batalha.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Manual das orações que todo católico deve ter gravadas no coração para tempos de batalha.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
 
@@ -610,7 +641,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="church" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">XIII. Santa Missa Explicada</h3>
-                    <p class="text-base opacity-70 mb-4">Entenda cada rito e gesto sagrado para participar do Sacrifício sem nunca mais se sentir perdido.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Entenda cada rito e gesto sagrado para participar do Sacrifício sem nunca mais se sentir perdido.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
 
@@ -618,7 +649,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="key" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">XIV. Confissão</h3>
-                    <p class="text-base opacity-70 mb-4">Como fazer um exame de consciência rigoroso e confessar-se corretamente para obter o perdão.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Como fazer um exame de consciência rigoroso e confessar-se corretamente para obter o perdão.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
 
@@ -626,7 +657,7 @@
                 <div class="bg-opacity-10 bg-white border border-vatican-gold/30 p-6 hover:bg-opacity-20 transition duration-300 group">
                     <div class="text-vatican-gold mb-4 group-hover:scale-110 transition-transform duration-300"><i data-lucide="shield" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold roman-font mb-2 text-white">XV. Cura e Libertação</h3>
-                    <p class="text-base opacity-70 mb-4">Manual de orações de renúncia e proteção espiritual para blindar sua casa do mal.</p>
+                    <p class="text-base opacity-70 mb-4 text-gray-400 group-hover:text-gray-200 transition">Manual de orações de renúncia e proteção espiritual para blindar sua casa do mal.</p>
                     <span class="text-vatican-gold text-xs uppercase tracking-wider border-b border-vatican-gold pb-1">Bônus Gratuito</span>
                 </div>
             </div>
@@ -759,7 +790,7 @@
                                      <div class="flex flex-col md:flex-row justify-between items-center border-b border-deep-sepia/20 pb-4 mb-4 text-center md:text-left">
                                         <div class="mb-2 md:mb-0">
                                             <p class="text-gray-500 line-through font-serif text-lg">Valor Real: R$ 394,90</p>
-                                            <div class="text-5xl md:text-6xl font-bold text-black roman-font">R$ 37<span class="text-2xl md:text-3xl">,90</span></div>
+                                            <div class="text-5xl md:text-6xl font-bold text-black roman-font">R$ 37<span class="text-2xl md:text-3xl">,00</span></div>
                                             <p class="text-sm text-vatican-red font-bold uppercase tracking-wider mt-1">Pagamento Único (Sem Mensalidades)</p>
                                         </div>
                                         <div class="text-center md:text-right">
@@ -850,7 +881,8 @@
                         </div>
 
                         <div class="w-full md:w-2/3">
-                            <a href="#" class="btn-sacred py-5 px-8 block w-full text-2xl md:text-3xl rounded-sm mb-4 text-center no-underline shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all">
+                            <!-- BOTÃO CHECKOUT -->
+                            <a href="https://checkout.tscotelaro.com.br/checkout01?add-to-cart=1273" class="btn-sacred py-5 px-8 block w-full text-2xl md:text-3xl rounded-sm mb-4 text-center no-underline shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all">
                                 EU QUERO COMEÇAR O ROSÁRIO AGORA
                             </a>
                             <div class="flex justify-center gap-4 opacity-60 grayscale">
@@ -879,7 +911,7 @@
                         <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"></i></span>
                     </summary>
                     <p class="mt-4 text-gray-600 font-serif">
-                        <strong>Não.</strong> O pagamento é **único**. Você paga apenas R$ 37,90 uma única vez e tem acesso vitalício a todo o material, sem pegadinhas, sem assinaturas e sem cobranças futuras.
+                        <strong>Não.</strong> O pagamento é **único**. Você paga apenas R$ 37,00 uma única vez e tem acesso vitalício a todo o material, sem pegadinhas, sem assinaturas e sem cobranças futuras.
                     </p>
                 </details>
 
@@ -920,11 +952,6 @@
             <div class="mb-6 text-vatican-gold opacity-50"><i data-lucide="church" class="w-8 h-8 mx-auto"></i></div>
             <p class="font-serif italic opacity-70 mb-6">"O Rosário é a arma para estes tempos." — São Padre Pio</p>
             <p class="text-xs opacity-50">&copy; 2023 Edições Sacras. Todos os direitos reservados.</p>
-            <div class="flex justify-center gap-6 mt-4 text-xs uppercase tracking-widest opacity-50">
-                <a href="#" class="hover:text-white">Termos</a>
-                <a href="#" class="hover:text-white">Privacidade</a>
-                <a href="#" class="hover:text-white">Contato</a>
-            </div>
         </div>
     </footer>
 
